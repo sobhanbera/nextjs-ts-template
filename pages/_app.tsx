@@ -1,7 +1,12 @@
-import "../styles/globals.scss";
+import '@/styles/globals.css'
+import type {AppProps} from 'next/app'
 
-function MyApp({ Component, pageProps }) {
-    return <Component {...pageProps} />;
+import {ThemeProvider} from '@/hooks'
+
+export default function App({Component, pageProps}: AppProps) {
+    return (
+        <ThemeProvider>
+            <Component {...pageProps} />
+        </ThemeProvider>
+    )
 }
-
-export default MyApp;

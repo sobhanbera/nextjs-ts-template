@@ -1,0 +1,14 @@
+# #!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# formatting the files before commiting
+node .husky/helper.js FF
+yarn prettier --write .
+
+# checking for file formatting issues...
+node .husky/helper.js CFF
+yarn prettier -c .
+
+# showing the git status
+node .husky/helper.js GST
+git status
